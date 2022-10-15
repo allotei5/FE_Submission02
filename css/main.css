@@ -2,4 +2,52 @@
 
 body {
     font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.items-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.border {
+    border: 1px black solid;
+}
+
+.border-3-custom {
+    border: 7px gray solid;
+}
+
+.vh-100 {
+    min-height: 100vh;
+}
+
+.vw-50 {
+    width: 20%;
+}
+
+.p-10 {
+    padding: 2.5rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-10 {
+    height: 2rem;
+}
+
+.my-10 {
+    margin: 1rem 0;
+}
+
+.pointer {
+    cursor: pointer;
 }
