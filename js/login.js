@@ -22,8 +22,8 @@ const loginRequest = async (username, password) => {
     }
 
     const { access_token, refresh_token } = data
-    setCookie("access_token", access_token)
-    setCookie("refresh_token", refresh_token)
+    setCookie("access_token", access_token, 900000)
+    setCookie("refresh_token", refresh_token, 2.5920E+9)
     
 }
 

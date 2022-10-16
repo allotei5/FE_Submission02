@@ -1,7 +1,7 @@
-const setCookie = (cookie_name, cookie_value) => {
+const setCookie = (cookie_name, cookie_value, time_to_expire) => {
     let now = new Date()
     let time = now.getTime()
-    let expireTime = time + 6000 * 3600
+    let expireTime = time + time_to_expire
     now.setTime(expireTime)
     document.cookie = cookie_name + "=" + cookie_value + ";expires=" + now.toUTCString() + ";path=/"
 }
