@@ -20,4 +20,37 @@ const getCookie = (cname) => {
       }
     }
     return "";
-  }
+}
+
+const getNewAccessToken = async () => {
+    const refreshToken = getCookie("refresh_token")
+    if (refreshToken === "") {
+        window.location.href = "/index.html"
+    }
+
+    const myHeaders = new Headers()
+    myHeaders.append('Authorization', `Bearer ${refreshToken}`)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+    }
+
+    const res = await fetch("https://freddy.codesubmit.io/refresh", requestOptions)
+    const data = await res.json()
+
+    if (data.msg !== undefined) {
+        window.location.reload()
+        return;
+    }
+
+    setCookie("access_token", data.access_token, 900000)
+}
+
+window.addEventListener('load', (e) => {
+    const access_token = getCookie('access_token')
+    if(access_token === "") {
+        getNewAccessToken()
+    }
+})

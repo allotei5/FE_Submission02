@@ -11,9 +11,21 @@ body {
     flex-direction: row;
 }
 
+.grid {
+    display: grid;
+}
+
+.grid-cols-4 {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
 .items-center {
-    align-items: center;
     justify-content: center;
+}
+
+.items-space-between {
+    justify-content: space-between;
 }
 
 .border {
@@ -36,8 +48,24 @@ body {
     padding: 2.5rem;
 }
 
+.p-5 {
+    padding: 1.25rem;
+}
+
 .w-full {
     width: 100%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-85 {
+    width: 85%;
 }
 
 .h-10 {
@@ -50,4 +78,33 @@ body {
 
 .pointer {
     cursor: pointer;
+}
+
+.container .toggle {
+    width: 50px;
+    height: 28px;
+    background: #444;
+    border-radius: 30px;
+    transition: 0.3s;
+
+}
+
+.container .toggle.active {
+    background: cornflowerblue;
+}
+
+.container .toggle .toggle-button {
+    position: relative;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container .toggle.active .toggle-button {
+    left: 27px
 }
