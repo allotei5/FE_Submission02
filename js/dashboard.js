@@ -104,7 +104,7 @@ const orderSummary = (data) => {
 
 let toggle = document.querySelector(".toggle");
 
-function AnimatedToggle() {
+const AnimatedToggle = () => {
     const chartHead = document.getElementById("chartHead");
     toggle.classList.toggle("active")
     chartToggle = !chartToggle
