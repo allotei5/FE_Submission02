@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css//main.css" >
+    <title>Login</title>
+</head>
+<body>
+    <div class="flex items-center vh-100" style="align-items: center;">
+        <div class="border-3-custom vw-50 p-10" style="height: 50%;">
+            <div class="flex">
+                <h1 style="font-size: 24px; font-weight: 500;">Freddy's Artisanal Halloween Candy Shop</h1>
+                <img src="./assets/Freddys_Logo.svg"  width="40%" alt="Freddy's Artisanal Halloween Candy Shop logo"/>
+            </div>
+            <form id="loginForm">
+                <div>
+                    <input type="text" required placeholder="username" id="username" class="w-full h-10 my-10"/>
+                </div>
+                <div>
+                    <input type="password" required id="password" placeholder="password" class="w-full h-10 my-10" />
+                </div>
+                <div class="w-full">
+                    <button type="submit" class="w-full h-10 my-10 pointer">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>

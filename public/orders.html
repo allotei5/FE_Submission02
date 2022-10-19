@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Orders</title>
+</head>
+<body>
+    <div class="flex vh-100">
+        <div class="border w-15 flex items-center" >
+            <div class="" style="width: 50%;">
+                <div class="" >
+                    <img src="./assets/Freddys_Logo.svg" width="90%" />
+                </div>
+                <div class="my-10">
+                    <a href="./dashboard.html">Dashboard</a>
+                </div>
+                <div class="my-10">
+                    <a href="#">Orders</a>
+                </div>
+                <div class="my-10">
+                    <a onclick="logout()" class="pointer">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border w-85 p-10">
+            <div class="flex items-space-between">
+                <h1 style="font-size: 24px; font-weight: 500;">Orders</h1>
+                <div style="width: 20rem;" class="flex">
+                    <img src="./assets/search.svg" width="35px" style="margin-right: 5px;"/>
+                    <input type="text" placeholder="search " class="w-full h-10 my-10" id="searchInput"/>
+                </div>
+            </div>
+
+            <div class="w-100 border p-10">
+                <div class="grid grid-cols-4">
+                    <div>Product Name</div>
+                    <div>Date</div>
+                    <div>Price ($)</div>
+                    <div>Status</div>
+                </div>
+                <hr />
+                <div id="orders"></div>
+            </div>
+            <div class="flex">
+                <img src="./assets/arrow-left.svg" id="arrowLeft" class="pointer" />
+                <p>Page <span id="pageNumber">1</span> of 3</p>
+                <img src="./assets/arrow-right.svg" id="arrow" class="pointer" />
+            </div>
+        </div>
+
+        
+
+    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/orders.js"></script>
+</body>
+</html>

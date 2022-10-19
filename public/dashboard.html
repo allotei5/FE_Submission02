@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="flex vh-100">
+        <div class="border w-15 flex items-center" >
+            <div class="" style="width: 50%;">
+                <div class="" >
+                    <img src="./assets/Freddys_Logo.svg" width="90%" />
+                </div>
+                <div class="my-10">
+                    <a href="#">Dashboard</a>
+                </div>
+                <div class="my-10">
+                    <a href="./orders.html">Orders</a>
+                </div>
+                <div class="my-10">
+                    <a onclick="logout()" class="pointer">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border w-85 p-10">
+            <h1 style="font-size: 24px; font-weight: 500;">Dashboard</h1>
+            <div class="flex items-space-between" id="summary"></div>
+
+
+            <div class="flex items-space-between">
+                <h1 style="font-size: 24px; font-weight: 500;" id="chartHead">Revenue (last 7 Days)</h1>
+                <div class="container" style="margin-top: 15px;">
+                    <div class="toggle">
+                        <div class="toggle-button" onclick="AnimatedToggle()"></div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="myChart" width="400" height="150"></canvas>
+
+            <h1 style="font-size: 24px; font-weight: 500;">Best Sellers</h1>
+            <div class="w-100 border p-10">
+                <div class="grid grid-cols-4">
+                    <div>Product Name</div>
+                    <div>Price ($)</div>
+                    <div># Units Sold</div>
+                    <div>Revenue</div>
+                </div>
+                <hr />
+                <div id="bestsellers"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>
