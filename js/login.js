@@ -20,6 +20,7 @@ const loginRequest = async (username, password) => {
 
     if (data.access_token === undefined) {
         alert("username or password is incorrect.")
+        return;
     }
 
     const { access_token, refresh_token } = data
