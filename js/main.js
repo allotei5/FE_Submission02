@@ -34,34 +34,44 @@ const getCookie = (cname) => {
     return "";
 }
 
+const logout = () => {
+    document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'refresh_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+}
+
 /**
  * It gets a new access token from the server using the refresh token
  * @returns a promise.
  */
 const getNewAccessToken = async () => {
     const refreshToken = getCookie("refresh_token")
-    if (refreshToken === "") {
-        window.location.href = "/index.html"
+    if (refreshToken === "") {  
+        if (!window.location.href.match("/index.html")) {
+            window.location.href = "/index.html"
+        }
     }
 
-    const myHeaders = new Headers()
-    myHeaders.append('Authorization', `Bearer ${refreshToken}`)
+    if (!window.location.href.match("/index.html")) {
 
-    const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        redirect: 'follow'
+        const myHeaders = new Headers()
+        myHeaders.append('Authorization', `Bearer ${refreshToken}`)
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        }
+
+        const res = await fetch("https://freddy.codesubmit.io/refresh", requestOptions)
+        const data = await res.json()
+
+        if (data.msg !== undefined) {
+            // window.location.reload()
+            return;
+        }
+
+        setCookie("access_token", data.access_token, 900000)
     }
-
-    const res = await fetch("https://freddy.codesubmit.io/refresh", requestOptions)
-    const data = await res.json()
-
-    if (data.msg !== undefined) {
-        window.location.reload()
-        return;
-    }
-
-    setCookie("access_token", data.access_token, 900000)
 }
 
 /* Checking if the access token is empty, if it is, it gets a new access token. */
@@ -75,7 +85,8 @@ window.addEventListener('load', (e) => {
 /* Checking if the access token is empty, if it is, it gets a new access token. */
 setInterval(() => {
     let access_token = getCookie("access_token")
-    if (access_token == "") {
+    let refresh_token = getCookie("refresh_token")
+    if (access_token === "" || refresh_token == "") {
         getNewAccessToken()
     }
 }, 500)

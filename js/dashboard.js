@@ -26,7 +26,7 @@ const fetchData = async () => {
   const dataFromApi = await res.json();
 
   if (dataFromApi.msg !== undefined) {
-    window.location.reload()
+    // window.location.reload()
   }
 
   data = dataFromApi.dashboard;

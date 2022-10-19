@@ -24,7 +24,7 @@ const getOrders = async (page=1) => {
     const data = await res.json()
 
     if (data.msg !== undefined) {
-        window.location.reload()
+        // window.location.reload()
     }
     return data.orders
 }
@@ -54,7 +54,7 @@ const searchOrders = async (term) => {
     const data = await res.json()
 
     if (data.msg !== undefined) {
-        window.location.reload()
+        // window.location.reload()
     }
     return data.orders
 }
