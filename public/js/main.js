@@ -1,10 +1,3 @@
-/**
- * It sets a cookie with the name and value you pass to it, and it expires in the amount of time you
- * pass to it.
- * @param cookie_name - The name of the cookie you want to set.
- * @param cookie_value - The value of the cookie.
- * @param time_to_expire - The time in milliseconds that you want the cookie to last.
- */
 const setCookie = (cookie_name, cookie_value, time_to_expire) => {
     let now = new Date()
     let time = now.getTime()
@@ -13,11 +6,6 @@ const setCookie = (cookie_name, cookie_value, time_to_expire) => {
     document.cookie = cookie_name + "=" + cookie_value + ";expires=" + now.toUTCString() + ";path=/"
 }
 
-/**
- * It takes a cookie name as a parameter and returns the value of the cookie.
- * @param cname - The name of the cookie you want to get.
- * @returns The value of the cookie.
- */
 const getCookie = (cname) => {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -34,10 +22,6 @@ const getCookie = (cname) => {
     return "";
 }
 
-/**
- * It gets a new access token from the server using the refresh token
- * @returns a promise.
- */
 const getNewAccessToken = async () => {
     const refreshToken = getCookie("refresh_token")
     if (refreshToken === "") {
@@ -64,7 +48,6 @@ const getNewAccessToken = async () => {
     setCookie("access_token", data.access_token, 900000)
 }
 
-/* Checking if the access token is empty, if it is, it gets a new access token. */
 window.addEventListener('load', (e) => {
     const access_token = getCookie('access_token')
     if(access_token === "") {
@@ -72,7 +55,6 @@ window.addEventListener('load', (e) => {
     }
 })
 
-/* Checking if the access token is empty, if it is, it gets a new access token. */
 setInterval(() => {
     let access_token = getCookie("access_token")
     if (access_token == "") {
